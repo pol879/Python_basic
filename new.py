@@ -3,7 +3,7 @@ from pygame.draw import *
 from random import randint
 
 p.init()
-ping = 60
+ping = 1
 score = 0
 n = 1
 c = 1
@@ -35,8 +35,8 @@ class Ball:
         self.x = randint(100, 1100)
         self.y = randint(100, 900)
         self.r = randint(10, 100)
-        self.dx = 2
-        self.dy = 2
+        self.dx = 1
+        self.dy = 1
         self.color = COLORS[randint(0, 9)]
 
     def show(self):
@@ -95,9 +95,9 @@ while not finished:
             click(event, k)
     score_show(score)
 
-    n += 1
 
     p.display.update()
+    screen.fill(BLACK)
 
 
 
