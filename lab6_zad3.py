@@ -5,7 +5,6 @@ p.init()
 # VARIABLES
 ping = 10
 score = 0
-
 # COLORS
 red = (255, 0, 0)
 blu = (0, 0, 255)
@@ -21,7 +20,7 @@ lpi = (218, 112, 214)
 ora = (255, 140, 0)
 w = (255, 255, 255)
 COLORS = [red, blu, yw, gr, pi, cyan, bl, me, mel, sky, lpi, ora, w]
-
+# main screen
 screen = p.display.set_mode((1200, 900))
 
 
@@ -29,10 +28,10 @@ screen = p.display.set_mode((1200, 900))
 class Ball:
     def __init__(self):
         self.x = randint(100, 1100)
-        self.y = randint(100, 900)
+        self.y = randint(100, 800)
         self.r = randint(10, 100)
-        self.dx = 5
-        self.dy = 5
+        self.dx = randint(1, 10)
+        self.dy = randint(1, 10)
         self.color = COLORS[randint(0, 12)]
 
     def show(self):
@@ -58,18 +57,32 @@ def score_show(score):
 def score_change(ev):
     global score
     (x, y) = ev.pos
-    if (a.x - x)**2 + (a.y - y)**2 <= a.r**2:
-        score += 1
-
-
+    for i in range(len(many)):
+        if (many[i].x - x)**2 + (many[i].y - y)**2 <= many[i].r**2:
+            if score >= 10:
+                score = 0
+                print('here we go again')
+            else:
+                score += 1
 
 
 
 # DISPLAY
 a = Ball()
 a.show()
+b = Ball()
+b.show()
+c = Ball()
+c.show()
+d = Ball()
+d.show()
+e = Ball()
+e.show()
+f = Ball()
+f.show()
+many = [a, b, c, d, e, f]
 
-########################################################
+######################################################
 p.display.update()
 clock = p.time.Clock()
 finished = False
@@ -79,6 +92,11 @@ while not finished:
     screen.fill(bl)
     score_show(score)
     a.change_location()
+    b.change_location()
+    c.change_location()
+    d.change_location()
+    e.change_location()
+    f.change_location()
 
     for event in p.event.get():
         if event.type == p.QUIT:
@@ -87,7 +105,5 @@ while not finished:
             score_change(event)
 
     p.display.update()
-
-
 
 p.quit()
