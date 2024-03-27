@@ -10,7 +10,6 @@ tu.goto(-600, 0)
 tu.pendown()
 chi = 9.8/2
 
-
 def parabola(v_ox, v_oy):
     t = 0
     i = (1 / chi) * v_oy
