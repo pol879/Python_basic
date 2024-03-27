@@ -6,7 +6,6 @@ t.pensize(5)
 t.pencolor('#104E8B')
 d = 50*np.sqrt(2)
 
-
 # number 0
 def zero():
     t.pendown()
